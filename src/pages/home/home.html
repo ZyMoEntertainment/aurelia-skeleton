@@ -53,10 +53,31 @@
                 <div class="value-converters-items">
                     <div class="converter">
                         <div class="converter-title">
-                            Lets start with the currency formatter
+                            Currency Formatter
+                        </div>
+                        <div class="converter-description">
+                            With the currency formatter, we can give any number we would like and by using the currency formatter we can have it display different ways normal on how currency would normally be displayed.
                         </div>
                         <div class="converter-text">
+                            We can convert the number "14.9148" and have a dollar sign : ${14.9148 | currencyFormat}<br>
+                            Or we can convert the same number "14.9148", and get it back without a dollar sign just by adding an additional parameter to the formatter ${14.9148 | currencyFormat:true} <br>
+                            If we give the number "14.9158", we can see the formatter will round up for us : ${14.9158 | currencyFormat}
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="value-converters value-block">
+                <div class="value-converters-items">
+                    <div class="converter">
+                        <div class="converter-title">
+                            Full Name Formatter
+                        </div>
+                        <div class="converter-description">
+                            With the full name formatter, we can give an object that contains the properties first_name and last_name, or firstName and lastName, and the converter will concatanate the name for you without having to write it out twice each time.
+                        </div>
+                        <div class="converter-text">
+                            Lets give it the object {first_name: "John", last_name: "Smith"} : ${johnSmith | fullName}
                         </div>
                     </div>
                 </div>

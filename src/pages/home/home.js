@@ -22,6 +22,7 @@ export class Home {
         {type: 'info', message: "Open Info Message"},
         {type: 'success', message: "Open Success Message"}
     ];
+    johnSmith = {first_name: "John", last_name: "Smith"};
 
     openDialog() {
         //Lets create the data we wanna send to the dialog - This will be sent to the dialog controller for customizations

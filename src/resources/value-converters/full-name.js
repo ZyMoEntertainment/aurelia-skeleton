@@ -4,6 +4,16 @@ export class FullNameValueConverter {
             return;
         }
 
-        return `${value.first_name} ${value.last_name}`;
+        if ((!value.first_name || !value.last_name) && (!value.firstName || !value.lastName)) {
+            return;
+        }
+
+        if (value.first_name && value.last_name) {
+            return `${value.first_name} ${value.last_name}`;
+        }
+
+        if (value.firstName && value.lastName) {
+            return `${value.firstName} ${value.lastName}`;
+        }
     }
 }
