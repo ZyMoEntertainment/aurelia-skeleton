@@ -12,12 +12,16 @@ export class Home {
         this.notification = notification;
     }
 
-
     attached() {
 
     }
 
     rangeSliderValue = 50; //We use this variable to store our selected value from the input slider
+    buttons = [
+        {type: 'error', message: "Open Error Message"},
+        {type: 'info', message: "Open Info Message"},
+        {type: 'success', message: "Open Success Message"}
+    ];
 
     openDialog() {
         //Lets create the data we wanna send to the dialog - This will be sent to the dialog controller for customizations

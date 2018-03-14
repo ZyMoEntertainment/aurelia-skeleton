@@ -113,7 +113,6 @@ let config = generateConfig(
     ...(ENV !== 'test' ? [
         commonChunksOptimize({appChunkName: 'app', firstChunk: 'aurelia-bootstrap'}),
         copyFiles({patterns: [
-                { from: 'favicon.ico', to: 'favicon.ico' },
                 { from: 'assets', to: 'assets' },
                 { from: 'styles', to: 'styles' }
             ]})

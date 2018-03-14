@@ -35,11 +35,9 @@
                     Notifications
                 </div>
                 <div class="component-description">
-                    Here we use a library from SpoonX for toaster notifications
+                    Here we use a library from SpoonX for toaster notifications. These buttons are also generated using an aurelia repeat loop, so you can see how easily you can minimize your HTML.
                 </div>
-                <button class="btn" click.delegate="openNotification('error')">Open Error Notification</button>
-                <button class="btn" click.delegate="openNotification('success')">Open Success Notification</button>
-                <button class="btn" click.delegate="openNotification('info')">Open Info Notification</button>
+                <button repeat.for="button of buttons" class="btn" click.delegate="openNotification(button.type)">${button.message}</button>
             </div>
         </div>
 
