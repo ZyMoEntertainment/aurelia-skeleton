@@ -10,6 +10,7 @@ export function configure(aurelia) {
         // Value Converters
         './value-converters/full-name',
         './value-converters/currency-formatter',
+        './value-converters/rgb-to-hex'
 
     ]);
 }

@@ -26,8 +26,30 @@
                 </div>
                 <button class="btn" click.delegate="openDialog()">Open Dialog</button>
                 <div class="dialog-response" if.bind="dialogResponse">
-                    ${dialogResponse}
+                    Dialog response: ${dialogResponse}
                 </div>
+                <div class="component-description">
+                    We can also change what we are sending there quite easily. This example also uses the form submit.delegate convention, so you can look at how that is used.
+                </div>
+                <form submit.delegate="openDialog()">
+                    <div class="form-group">
+                        <label for="heading">Input Heading:</label>
+                        <input id="heading" type="text" value.bind="dialogSettings.heading" />
+                    </div>
+                    <div class="form-group">
+                        <label for="subtitle">Input Subtitle:</label>
+                        <input id="subtitle" type="text" value.bind="dialogSettings.subtitle" />
+                    </div>
+                    <div class="form-group">
+                        <label for="body">Input Body:</label>
+                        <input id="body" type="text" value.bind="dialogSettings.body" />
+                    </div>
+                    <div class="form-group">
+                        <label for="buttonText">Input Confirmation Button Text:</label>
+                        <input id="buttonText" type="text" value.bind="dialogSettings.buttonText" />
+                    </div>
+                    <button class="btn" type="submit">Open Dialog</button>
+                </form>
             </div>
 
             <div class="notifications component-block">
@@ -46,14 +68,14 @@
                 How about some value converters?
             </h3>
             <h4 class="component-description">
-                Value converters allow you to get the look you want for the information you are displaying
+                Value converters allow you to get the look you want for the information you are displaying. If you look in /src/resources/index.js you see how easy it is to add the value converter as a global resource for later use.
             </h4>
 
             <div class="value-converters value-block">
                 <div class="value-converters-items">
                     <div class="converter">
                         <div class="converter-title">
-                            Currency Formatter
+                            Currency Converter
                         </div>
                         <div class="converter-description">
                             With the currency formatter, we can give any number we would like and by using the currency formatter we can have it display different ways normal on how currency would normally be displayed.
@@ -71,13 +93,31 @@
                 <div class="value-converters-items">
                     <div class="converter">
                         <div class="converter-title">
-                            Full Name Formatter
+                            Full Name Converter
                         </div>
                         <div class="converter-description">
                             With the full name formatter, we can give an object that contains the properties first_name and last_name, or firstName and lastName, and the converter will concatanate the name for you without having to write it out twice each time.
                         </div>
                         <div class="converter-text">
                             Lets give it the object {first_name: "John", last_name: "Smith"} : ${johnSmith | fullName}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="value-converters value-block">
+                <div class="value-converters-items">
+                    <div class="converter">
+                        <div class="converter-title">
+                            RGB to Hexcode Converter
+                        </div>
+                        <div class="converter-description">
+                            This is a bi-directional value converter. We are giving the value converter our value, and it will change the object for us within our view controller. This is a very powerful binding convention for Aurelia
+                        </div>
+                        <div class="converter-text">
+                            <label for="color">Select Color:</label>
+                            <input id="color" type="color" value.bind="rgb | rgbToHex" />
+                            <br/> r: ${rgb.r}, g:${rgb.g}, b:${rgb.b}
                         </div>
                     </div>
                 </div>

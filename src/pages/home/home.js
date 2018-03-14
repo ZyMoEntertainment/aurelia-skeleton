@@ -23,13 +23,13 @@ export class Home {
         {type: 'success', message: "Open Success Message"}
     ];
     johnSmith = {first_name: "John", last_name: "Smith"};
+    rgb = { r: 146, g: 39, b: 143 };
+    dialogSettings = {heading: 'Example Heading', subtitle: 'Example Subtitle' , body: 'Example Body', buttonText: 'My Confirm Text'};
 
     openDialog() {
-        //Lets create the data we wanna send to the dialog - This will be sent to the dialog controller for customizations
-        let dialogSettings = {heading: 'Example Heading', subtitle: 'Example Subtitle' , body: 'Example Body', buttonText: 'My Confirm Text'};
         if (!this.modalOpen) {
             this.modalOpen = true;
-            this.dialogService.open({viewModel: ConfirmDialog, model: dialogSettings, lock:false})
+            this.dialogService.open({viewModel: ConfirmDialog, model: this.dialogSettings, lock:false})
                 .whenClosed(response => {
                     this.modalOpen = false;
                     this.dialogResponse = response.output;
