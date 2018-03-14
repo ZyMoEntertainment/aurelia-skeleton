@@ -1,0 +1,68 @@
+<template>
+    <div id="home" class="container">
+       <h3 class="heading">
+           Lets look at all the components included in this skeleton
+       </h3>
+        <h4 class="component-description">
+            All of these are amazing components that can be used in any aurelia project
+        </h4>
+        <div class="components">
+            <div class="input-slider component-block">
+                <div class="component-title">
+                    Input/Range Slider
+                </div>
+                <div class="component-description">
+                    Here we can see an input slider, which can be used a variety of inputs. We explicitly set a minimum value of 10, max of 100, and each step is 10 values apart.
+                </div>
+                <range-slider value.two-way="rangeSliderValue" min="0" max="100" step="10"></range-slider>
+            </div>
+
+            <div class="popup-dialog component-block">
+                <div class="component-title">
+                    Popup Dialog
+                </div>
+                <div class="component-description">
+                    Here we can open a popup dialog to confirm a selection or deletion.
+                </div>
+                <button class="btn" click.delegate="openDialog()">Open Dialog</button>
+                <div class="dialog-response" if.bind="dialogResponse">
+                    ${dialogResponse}
+                </div>
+            </div>
+
+            <div class="notifications component-block">
+                <div class="component-title">
+                    Notifications
+                </div>
+                <div class="component-description">
+                    Here we use a library from SpoonX for toaster notifications
+                </div>
+                <button class="btn" click.delegate="openNotification('error')">Open Error Notification</button>
+                <button class="btn" click.delegate="openNotification('success')">Open Success Notification</button>
+                <button class="btn" click.delegate="openNotification('info')">Open Info Notification</button>
+            </div>
+        </div>
+
+        <div class="value-converters">
+            <h3 class="heading">
+                How about some value converters?
+            </h3>
+            <h4 class="component-description">
+                Value converters allow you to get the look you want for the information you are displaying
+            </h4>
+
+            <div class="value-converters value-block">
+                <div class="value-converters-items">
+                    <div class="converter">
+                        <div class="converter-title">
+                            Lets start with the currency formatter
+                        </div>
+                        <div class="converter-text">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
