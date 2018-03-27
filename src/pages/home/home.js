@@ -17,13 +17,17 @@ export class Home {
     }
 
     rangeSliderValue = 50; //We use this variable to store our selected value from the input slider
+
     buttons = [
         {type: 'error', message: "Open Error Message"},
         {type: 'info', message: "Open Info Message"},
         {type: 'success', message: "Open Success Message"}
     ];
+
     johnSmith = {first_name: "John", last_name: "Smith"};
+
     rgb = { r: 146, g: 39, b: 143 };
+
     dialogSettings = {heading: 'Example Heading', subtitle: 'Example Subtitle' , body: 'Example Body', buttonText: 'My Confirm Text'};
 
     openDialog() {
@@ -39,9 +43,9 @@ export class Home {
     }
 
     openNotification(type) {
-        if (type == 'info') {
+        if (type === 'info') {
             this.notification.info('Some Info Message!')
-        } else if (type == 'error') {
+        } else if (type === 'error') {
             this.notification.error('Some Error!')
         } else {
             this.notification.success('Some Success Message!')

@@ -13,7 +13,6 @@ export async function configure(aurelia) {
         .standardConfiguration()
         .plugin("aurelia-dialog")
         .plugin('aurelia-configuration', config => {
-
             //Here is where the config checks for what environment it should be using.
             config.setEnvironments({
                 local: ['local', 'localhost'],
@@ -22,7 +21,8 @@ export async function configure(aurelia) {
             });
 
         })
-
+        //https://github.com/grofit/aurelia-chart
+        .plugin("aurelia-chart")
         //For more information on the aurelia-notification package check it out here : https://github.com/SpoonX/aurelia-notification
         .plugin('aurelia-notification', config => {
             config.configure({

@@ -31,7 +31,7 @@ export class App {
         config.addPipelineStep('postcomplete', PostCompleteStep); //Fires this function after completing the init of controller
         config.map([
             { route: ['', 'home'], name: 'home',      moduleId: vRoot + 'home/home',      nav: true, title: 'Home' },
-            { route: 'page', name: 'page', moduleId: vRoot + 'page/page', nav:true, title: 'Page' }
+            { route: 'api-example', name: 'API', moduleId: vRoot + 'api-example/api-example', nav:true, title: 'API' }
         ]);
 
         config.mapUnknownRoutes(() => {

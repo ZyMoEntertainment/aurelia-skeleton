@@ -22,7 +22,7 @@
                     Popup Dialog
                 </div>
                 <div class="component-description">
-                    Here we can open a popup dialog to confirm a selection or deletion.
+                    Here we can open a popup dialog to confirm a selection or deletion. These entries are in a form that uses aurelia's powerful binding , you should take a look to see how these are done. This makes sending information from the DOM to the view controller quite simple.
                 </div>
                 <button class="btn" click.delegate="openDialog()">Open Dialog</button>
                 <div class="dialog-response" if.bind="dialogResponse">
@@ -33,19 +33,19 @@
                 </div>
                 <form submit.delegate="openDialog()">
                     <div class="form-group">
-                        <label for="heading">Input Heading:</label>
+                        <label for="heading">Dialog Heading:</label>
                         <input id="heading" type="text" value.bind="dialogSettings.heading" />
                     </div>
                     <div class="form-group">
-                        <label for="subtitle">Input Subtitle:</label>
+                        <label for="subtitle">Dialog Subtitle:</label>
                         <input id="subtitle" type="text" value.bind="dialogSettings.subtitle" />
                     </div>
                     <div class="form-group">
-                        <label for="body">Input Body:</label>
+                        <label for="body">Dialog Body:</label>
                         <input id="body" type="text" value.bind="dialogSettings.body" />
                     </div>
                     <div class="form-group">
-                        <label for="buttonText">Input Confirmation Button Text:</label>
+                        <label for="buttonText">Dialog Confirmation Button Text:</label>
                         <input id="buttonText" type="text" value.bind="dialogSettings.buttonText" />
                     </div>
                     <button class="btn" type="submit">Open Dialog</button>
@@ -60,6 +60,15 @@
                     Here we use a library from SpoonX for toaster notifications. These buttons are also generated using an aurelia repeat loop, so you can see how easily you can minimize your HTML.
                 </div>
                 <button repeat.for="button of buttons" class="btn" click.delegate="openNotification(button.type)">${button.message}</button>
+            </div>
+
+            <div class="chart component-block">
+                <div class="component-title">
+                    Aurelia ChartJS
+                </div>
+                <div class="component-description">
+                    Here we use a library from grofit for charting data. This is built off the ChartJS framework to be easier to use in the Aurelia Framework. You can view the ChartJS site here <a href="https://www.chartjs.org/">https://www.chartjs.org/</a>
+                </div>
             </div>
         </div>
 

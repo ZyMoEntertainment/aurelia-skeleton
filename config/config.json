@@ -1,22 +1,22 @@
 {
-    "name": "Some Name",
+    "name": "NumbersAPI",
     "api": {
         "key": "somekey",
-        "endpoint": "http://localhost:2600/api/"
+        "endpoint": "http://localhost:3000/api/"
     },
     "local": {
         "api": {
-            "endpoint": "http://localhost:2600/api/"
+            "endpoint": "http://localhost:3000/api/"
         }
     },
     "development": {
         "api": {
-            "endpoint": "http://localhost:2600/api/"
+            "endpoint": "http://localhost:3000/api/"
         }
     },
     "production": {
         "api": {
-            "endpoint": "http://produrl:2600/api/"
+            "endpoint": "http://localhost:3000/api/"
         }
     }
 }

@@ -64,12 +64,16 @@
   "homepage": "https://github.com/aurelia/skeleton-navigation#readme",
   "aurelia": {
     "build": {
-      "resources": []
+      "resources": [
+        "aurelia-chart/elements/chart-element",
+        "aurelia-chart/attributes/chart-attribute"
+      ]
     }
   },
   "dependencies": {
     "aurelia-auth": "^3.0.5",
     "aurelia-bootstrapper-webpack": "^1.1.0",
+    "aurelia-chart": "^0.2.7",
     "aurelia-configuration": "^1.0.17",
     "aurelia-dialog": "^1.0.0-rc.2.0.0",
     "aurelia-event-aggregator": "^1.0.0",
