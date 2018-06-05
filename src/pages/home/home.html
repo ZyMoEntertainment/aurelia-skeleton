@@ -61,24 +61,15 @@
                 </div>
                 <button repeat.for="button of buttons" class="btn" click.delegate="openNotification(button.type)">${button.message}</button>
             </div>
-
-            <div class="chart component-block">
-                <div class="component-title">
-                    Aurelia ChartJS
-                </div>
-                <div class="component-description">
-                    Here we use a library from grofit for charting data. This is built off the ChartJS framework to be easier to use in the Aurelia Framework. You can view the ChartJS site here <a href="https://www.chartjs.org/">https://www.chartjs.org/</a>
-                </div>
-            </div>
         </div>
 
         <div class="value-converters">
-            <h3 class="heading">
+            <div class="heading">
                 How about some value converters?
-            </h3>
-            <h4 class="component-description">
+            </div>
+            <div class="component-description">
                 Value converters allow you to get the look you want for the information you are displaying. If you look in /src/resources/index.js you see how easy it is to add the value converter as a global resource for later use.
-            </h4>
+            </div>
 
             <div class="value-converters value-block">
                 <div class="value-converters-items">
