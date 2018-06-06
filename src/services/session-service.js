@@ -37,11 +37,11 @@ export class SessionService {
     }
 
     saveToken(token) {
-        window.localStorage(TOKEN_KEY) = token;
+        window.localStorage[TOKEN_KEY] = token;
     }
 
     getToken() {
-        return window.localStorage(TOKEN_KEY);
+        return window.localStorage[TOKEN_KEY];
     }
 
     destroyToken() {
@@ -50,7 +50,7 @@ export class SessionService {
 
     isTokenValid() {
         const token = this.getToken();
-        return token && token === '';
+        return (token && token === '');
     }
 
     getAuthorizationHeader() {

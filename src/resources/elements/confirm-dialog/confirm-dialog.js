@@ -1,8 +1,3 @@
-import {inject} from 'aurelia-framework';
-import {DialogController} from 'aurelia-dialog';
-
-@inject(DialogController)
-
 export class ConfirmDialog {
 
     //Send this dialog these options in an object form and the settings will update accordingly.
@@ -14,8 +9,8 @@ export class ConfirmDialog {
         buttonText: 'Confirm'
     };
 
-    constructor(controller) {
-        this.controller = controller;
+    constructor(DialogController) {
+        this.controller = DialogController;
 
         controller.settings.centerHorizontalOnly = true;
     }
