@@ -1,5 +1,6 @@
-import {inject} from 'aurelia-framework';
+import {inject, buildQueryString} from 'aurelia-framework';
 import {HttpClient, json} from 'aurelia-fetch-client';
+import {ApiError} from './api-error'
 
 @inject(HttpClient)
 export class ApiService {
@@ -7,36 +8,49 @@ export class ApiService {
         this.http = httpClient;
     }
 
-    async doGet(path) {
-        const response = await this.http.fetch(path);
-        return response.json();
+    async get(path, params) {
+        const options = {method: 'GET'};
+
+        if (params) {
+             path += `?${buildQueryString(params)}`
+        }
+        return this._request(path, options)
     }
 
-    async doDelete(path) {
-        const response = await this.http.fetch(path, {
-            method: 'delete'
-        });
-
+    async delete(path) {
+        const options = {method: 'DELETE'};
+        return this._request(path, options)
     }
 
-    async doPut(path, data) {
-
-        const response = await this.http.fetch(path, {
-            method: 'put',
-            body: json(data)
-        });
-
-        return response.json();
+    async put(path, body) {
+        return this._push(path, body, true);
     }
 
-    async doPost(path, data) {
+    async post(path, body) {
+        return this._push(path, body)
+    }
 
-        const response = await this.http.fetch(path, {
-            method: 'post',
-            body: json(data)
-        });
+    async _push(path, body, asPut) {
+        const options = {
+            method: !asPut ? 'PUT' : 'POST',
+            body: json(body)
+        };
+        return this._request(path, options)
+    }
 
-        return response.json();
+    async _request(path, options) {
+        const result = await this.http.fetch(path, options);
+        const status = result.status;
+        if (status === 204) {
+            return null;
+        }
+
+        const response = await result.json();
+
+        if (status >= 200 && status < 400) {
+            return response
+        }
+        throw new ApiError(response);
     }
 
 

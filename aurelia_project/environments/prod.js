@@ -1,5 +1,5 @@
 export default {
-  debug: false,
-  testing: false,
-  endpoint: 'http://localhost:3000/api/'
+    debug: false,
+    testing: false,
+    apiUrl: 'http://localhost:3000/api/'
 };
