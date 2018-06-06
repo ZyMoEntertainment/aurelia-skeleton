@@ -14,12 +14,12 @@ export class ApiService {
         if (params) {
              path += `?${buildQueryString(params)}`
         }
-        return this._request(path, options)
+        return this._request(path, options);
     }
 
     async delete(path) {
         const options = {method: 'DELETE'};
-        return this._request(path, options)
+        return this._request(path, options);
     }
 
     async put(path, body) {
@@ -27,7 +27,7 @@ export class ApiService {
     }
 
     async post(path, body) {
-        return this._push(path, body)
+        return this._push(path, body);
     }
 
     async _push(path, body, asPut) {
@@ -35,7 +35,7 @@ export class ApiService {
             method: !asPut ? 'PUT' : 'POST',
             body: json(body)
         };
-        return this._request(path, options)
+        return this._request(path, options);
     }
 
     async _request(path, options) {
@@ -48,7 +48,7 @@ export class ApiService {
         const response = await result.json();
 
         if (status >= 200 && status < 400) {
-            return response
+            return response;
         }
         throw new ApiError(response);
     }

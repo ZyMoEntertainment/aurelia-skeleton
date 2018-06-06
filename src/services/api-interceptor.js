@@ -3,7 +3,7 @@ import {SessionService} from './session-service';
 
 const AUTHORIZATION_HEADER = 'Authorization';
 
-@inject{SessionService}
+@inject(SessionService)
 export class ApiInterceptor {
     constructor(sessionService) {
         this.sessionService = sessionService;

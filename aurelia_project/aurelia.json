@@ -1,5 +1,5 @@
 {
-    "name": "test-app",
+    "name": "zymo-aurelia-skeleton",
     "type": "project:application",
     "bundler": {
         "id": "cli",
@@ -30,6 +30,7 @@
             {
                 "name": "vendor-bundle.js",
                 "prepend": [
+                    "node_modules/babel-polyfill/dist/polyfill.min.js",
                     "node_modules/bluebird/js/browser/bluebird.core.js",
                     {
                         "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird-no-long-stacktraces.js",
@@ -55,36 +56,6 @@
                     "aurelia-logging",
                     "aurelia-logging-console",
                     "aurelia-metadata",
-                    "aurelia-pal",
-                    "aurelia-pal-browser",
-                    "aurelia-path",
-                    "aurelia-polyfills",
-                    "aurelia-route-recognizer",
-                    "aurelia-router",
-                    "aurelia-task-queue",
-                    "aurelia-templating",
-                    "aurelia-templating-binding", {
-                        "name": "aurelia-templating-resources",
-                        "path": "../node_modules/aurelia-templating-resources/dist/amd",
-                        "main": "aurelia-templating-resources"
-                    },
-                    {
-                        "name": "aurelia-templating-router",
-                        "path": "../node_modules/aurelia-templating-router/dist/amd",
-                        "main": "aurelia-templating-router"
-                    },
-                    {
-                        "name": "aurelia-testing",
-                        "path": "../node_modules/aurelia-testing/dist/amd",
-                        "main": "aurelia-testing",
-                        "env": "dev"
-                    },
-                    {
-                        "name": "aurelia-dialog",
-                        "path": "../node_modules/aurelia-dialog/dist/amd",
-                        "main": "aurelia-dialog"
-                    },
-                    "extend",
                     "aurelia-notification", {
                         "name": "humane-js",
                         "path": "../node_modules/humane-js",
@@ -108,10 +79,37 @@
                         "path": "../node_modules/i18next-xhr-backend/dist/umd",
                         "main": "i18nextXHRBackend"
                     },
+                    "aurelia-pal",
+                    "aurelia-pal-browser",
+                    "aurelia-path",
+                    "aurelia-polyfills",
+                    "aurelia-route-recognizer",
+                    "aurelia-router",
+                    "aurelia-task-queue",
+                    "aurelia-templating",
+                    "aurelia-templating-binding", {
+                        "name": "aurelia-templating-resources",
+                        "path": "../node_modules/aurelia-templating-resources/dist/amd",
+                        "main": "aurelia-templating-resources"
+                    }, {
+                        "name": "aurelia-templating-router",
+                        "path": "../node_modules/aurelia-templating-router/dist/amd",
+                        "main": "aurelia-templating-router"
+                    }, {
+                        "name": "aurelia-testing",
+                        "path": "../node_modules/aurelia-testing/dist/amd",
+                        "main": "aurelia-testing",
+                        "env": "dev"
+                    }, {
+                        "name": "aurelia-dialog",
+                        "path": "../node_modules/aurelia-dialog/dist/amd",
+                        "main": "aurelia-dialog"
+                    },
+                    "extend",
+                    "jquery",
                     "numeral",
                     "moment",
-                    "text",
-                    {
+                    "text", {
                         "name": "bootstrap",
                         "path": "../node_modules/bootstrap/dist",
                         "main": "js/bootstrap.bundle.min",
@@ -122,8 +120,7 @@
                         "resources": [
                             "css/bootstrap.css"
                         ]
-                    },
-                    "jquery"
+                    }
                 ]
             }
         ],
