@@ -1,0 +1,445 @@
+//Your default styles can go in here, variables and such that will be used globally.
+body {
+    margin: 0;
+}
+
+.inline {
+    display: inline-grid;
+}
+
+.navbar-nav {
+    cursor: pointer;
+    .nav-link {
+        margin-top: 10px;
+        margin-right: 50px;
+        font-size: 16px;
+        letter-spacing: 2px;
+        font-weight: 400;
+        padding-top: 5px;
+        a {
+            color: black;
+        }
+    }
+}
+
+.lighter {
+    font-weight: lighter
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green
+}
+
+.orange {
+    color: orange;
+}
+
+.buy-image {
+    width: 25px;
+}
+
+.nav-links:hover {
+    color: gold;
+}
+
+.gold {
+    color: gold;
+}
+
+.top-spacing {
+    letter-spacing: 10px;
+    font-weight: lighter
+}
+
+.nav-spacing {
+    letter-spacing: 3px;
+}
+
+.nav-row {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.navbar {
+    background-color: #f8f8f8 !important;
+    font-family: "Lato", Helvetica Neue, serif;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    color: black;
+}
+
+//Jacked Up Section//
+html, body {
+    min-height: 100%;
+}
+
+.humane, .humane-jackedup {
+    position: fixed;
+    -moz-transition: all 0.6s ease-in-out;
+    -webkit-transition: all 0.6s ease-in-out;
+    -ms-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+    z-index: 100000;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+}
+
+.humane, .humane-jackedup {
+    font-family: Helvetica Neue, Helvetica, san-serif;
+    font-size: 18px;
+    letter-spacing: -1px;
+    top: 20px;
+    left: 30%;
+    opacity: 0;
+    width: 40%;
+    color: #333;
+    padding: 10px;
+    text-align: center;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0.1)), color-stop(1, rgba(0, 0, 0, 0.2))) no-repeat;
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%) no-repeat;
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%) no-repeat;
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%) no-repeat;
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%) no-repeat;
+    background: linear-gradient(top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%) no-repeat;
+    background-color: #fff;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    -moz-transform: translateY(-100px);
+    -webkit-transform: translateY(-100px);
+    -ms-transform: translateY(-100px);
+    -o-transform: translateY(-100px);
+    transform: translateY(-100px);
+}
+
+.humane p, .humane-jackedup p, .humane ul, .humane-jackedup ul {
+    margin: 0;
+    padding: 0;
+}
+
+.humane ul, .humane-jackedup ul {
+    list-style: none;
+}
+
+.humane.humane-jackedup-info, .humane-jackedup.humane-jackedup-info {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0, 0, 0, 0.7)), color-stop(1, rgba(0, 0, 0, 0.85))) no-repeat;
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.85) 100%) no-repeat;
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.85) 100%) no-repeat;
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.85) 100%) no-repeat;
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.85) 100%) no-repeat;
+    background: linear-gradient(top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.85) 100%) no-repeat;
+    background-color: #fff;
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.35);
+}
+
+.humane.humane-jackedup-success, .humane-jackedup.humane-jackedup-success {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #62c462), color-stop(1, #57a957)) no-repeat;
+    background: -moz-linear-gradient(top, #62c462 0%, #57a957 100%) no-repeat;
+    background: -webkit-linear-gradient(top, #62c462 0%, #57a957 100%) no-repeat;
+    background: -ms-linear-gradient(top, #62c462 0%, #57a957 100%) no-repeat;
+    background: -o-linear-gradient(top, #62c462 0%, #57a957 100%) no-repeat;
+    background: linear-gradient(top, #62c462 0%, #57a957 100%) no-repeat;
+    background-color: #64ff64;
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.35);
+}
+
+.humane.humane-jackedup-error, .humane-jackedup.humane-jackedup-error {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ee5f5b), color-stop(1, #c43c35)) no-repeat;
+    background: -moz-linear-gradient(top, #ee5f5b 0%, #c43c35 100%) no-repeat;
+    background: -webkit-linear-gradient(top, #ee5f5b 0%, #c43c35 100%) no-repeat;
+    background: -ms-linear-gradient(top, #ee5f5b 0%, #c43c35 100%) no-repeat;
+    background: -o-linear-gradient(top, #ee5f5b 0%, #c43c35 100%) no-repeat;
+    background: linear-gradient(top, #ee5f5b 0%, #c43c35 100%) no-repeat;
+    background-color: #ee5f5b;
+    color: #fff;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.35);
+}
+
+.humane-animate, .humane-jackedup.humane-jackedup-animate {
+    opacity: 1;
+    -moz-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.humane-animate:hover, .humane-jackedup.humane-jackedup-animate:hover {
+    opacity: 0.7;
+}
+
+.humane-js-animate, .humane-jackedup.humane-jackedup-js-animate {
+    opacity: 1;
+    -moz-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+}
+
+.humane-js-animate:hover, .humane-jackedup.humane-jackedup-js-animate:hover {
+    opacity: 0.7;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+}
+
+.title {
+    font-size: 24px;
+}
+
+.subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.splash {
+    text-align: center;
+    margin: 10% 0 0 0;
+    box-sizing: border-box;
+}
+
+//Fixes for iOS11
+ux-dialog-container {
+     position: fixed;
+}
+
+//Fixes for iOS11
+ux-dialog-overlay {
+    position: fixed;
+}
+
+ux-dialog-container>div>div {
+    background: white;
+    border-radius: 10px;
+    padding: 40px;
+    margin-top: 5% !important;
+    width: 50% !important;
+}
+
+ux-dialog-overlay.active {
+    background-color: black;
+    opacity: .5 !important;
+}
+
+.splash .message {
+    font-size: 72px;
+    line-height: 72px;
+    text-shadow: rgba(0, 0, 0, 0.5) 0 0 15px;
+    text-transform: uppercase;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.splash .fa-spinner {
+    text-align: center;
+    display: inline-block;
+    font-size: 72px;
+    margin-top: 50px;
+}
+
+.logo {
+    margin-left: 5px;
+
+}
+.collapsed {
+    float: left;
+}
+
+ux-dialog-container>div>div {
+    min-width: 500px !important;
+}
+
+@media (min-width: 768px) {
+    .collapsed {
+        display: none;
+    }
+}
+
+.page-host {
+    font-family: "Source Sans Pro", Arial, Tahoma, sans-serif;
+    //height:100%;
+    background-color: #F8FEF8;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 80px;
+}
+
+@media print {
+    .page-host {
+        position: absolute;
+        left: 10px;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        overflow-y: inherit;
+        overflow-x: inherit;
+    }
+}
+
+@media (max-width: 1000px) {
+    .au-target {
+        margin-left: 2px;
+        margin-right: 2px;
+        font-size: 16px;
+    }
+}
+
+section {
+    margin: 0 20px;
+}
+
+/* animate page transitions */
+section.au-enter-active {
+    -webkit-animation: fadeInRight 1s;
+    animation: fadeInRight 1s;
+}
+
+div.au-stagger {
+    /* 50ms will be applied between each successive enter operation */
+    -webkit-animation-delay: 50ms;
+    animation-delay: 50ms;
+}
+
+.card-container.au-enter {
+    opacity: 0 !important;
+}
+
+.card-container.au-enter-active {
+    -webkit-animation: fadeIn 2s;
+    animation: fadeIn 2s;
+}
+
+.card {
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    text-align: center;
+    padding: 0;
+    background-color: #2b2b2b;
+    color: rgb(136, 172, 217);
+    margin-bottom: 32px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+}
+
+#footer {
+    background-color: black;
+    color: white !important;
+    padding: 40px;
+    text-align: center;
+    .image {
+        margin-bottom: 20px;
+    }
+
+    .au-target {
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .head {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .social {
+        img {
+            width: 40px;
+            margin: 10px;
+        }
+    }
+}
+
+.card .content {
+    margin-top: 10px;
+}
+
+.card .content .name {
+    color: white;
+    text-shadow: 0 0 6px rgba(0, 0, 0, .5);
+    font-size: 18px;
+}
+
+.card .header-bg {
+    /* This stretches the canvas across the entire hero unit */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px #FFF solid;
+    border-radius: 6px 6px 0 0;
+}
+
+.card .avatar {
+    position: relative;
+    margin-top: 15px;
+    z-index: 100;
+}
+
+.card .avatar img {
+    width: 100px;
+    height: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 2px #FFF solid;
+}
+
+/* animation definitions */
+@-webkit-keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(100%, 0, 0);
+        -ms-transform: translate3d(100%, 0, 0);
+        transform: translate3d(100%, 0, 0)
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

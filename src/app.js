@@ -1,37 +1,58 @@
-import {inject, Aurelia} from 'aurelia-framework';
-import {FetchConfig} from 'aurelia-auth';
-import {HttpClient} from 'aurelia-fetch-client';
-import {AureliaConfiguration} from "aurelia-configuration";
-import $ from 'jquery';
+import {inject} from 'aurelia-framework';
+import {SessionService} from "services/session-service";
+import {Router} from 'aurelia-router'
 
-@inject(Aurelia, FetchConfig, HttpClient)
+@inject(SessionService, Router)
 export class App {
-    constructor(aurelia,  fetchConfig, httpClient) {
-        this.aurelia = aurelia;
+    constructor(sessionService, router) {
+        this.sessionService = sessionService;
+        this.router = router;
+    }
 
-        this.httpClient = httpClient;
-        //To learn more about the fetch client : https://github.com/aurelia/fetch-client
-        this.fetchConfig = fetchConfig;
-        this.fetchConfig.configure();
+    modalOpen = false;
 
-        //Setup of the HTTP Request Client, getting endpoint details from config.
-        //For more info visit https://github.com/Vheissu/aurelia-configuration
-        this.httpClient.configure(config => {
-            let configInstance = aurelia.container.get(AureliaConfiguration);
-            let apiEndpoint = configInstance.get('api.endpoint');
+    user;
 
-            config.withBaseUrl(apiEndpoint);
-        });
+    async activate() {
+        this.user = await this.sessionService.isTokenValid();
+    }
+
+    logout() {
+        this.sessionService.logout();
+        location.reload();
     }
 
     configureRouter(config, router) {
-        //config.options.pushState = true; //This is something that should ALWAYS be true on prod.
+        config.options.pushState = true;
         const vRoot = 'pages/';
-        config.title = 'Aurelia Skeleton';
+        config.title = 'Zymo Aurelia Skeleton';
         config.addPipelineStep('postcomplete', PostCompleteStep); //Fires this function after completing the init of controller
         config.map([
-            { route: ['', 'home'], name: 'home',      moduleId: vRoot + 'home/home',      nav: true, title: 'Home' },
-            { route: 'page', name: 'page', moduleId: vRoot + 'page/page', nav:true, title: 'Page' }
+            {
+                route: ['', 'home'],
+                name: 'home',
+                moduleId: vRoot + 'home/home',
+                nav: true,
+                title: 'Home'
+            },
+            {
+                route: 'signup',
+                name: 'signup',
+                moduleId: vRoot + 'auth/signup',
+                title: 'Sign Up'
+            },
+            {
+                route: 'login',
+                name: 'login',
+                moduleId: vRoot + 'auth/auth',
+                title: 'Log In'
+            },
+            {
+                route: 'api-example',
+                name: 'api-example',
+                moduleId: vRoot + 'api-example/api-example',
+                title: 'API Example'
+            },
         ]);
 
         config.mapUnknownRoutes(() => {
@@ -41,9 +62,14 @@ export class App {
         this.router = router;
     }
 
+    route(route, param) {
+        if (param) {
+            this.router.navigate(route + '/' + param, {id: param});
+            return
+        }
+        this.router.navigate(route)
+    }
 }
-
-//We use this for instances where we want the person to be scrolled automatically to the top of a page for each route change
 class PostCompleteStep {
     run(routingContext, next) {
         $(".page-host").scrollTop(0);

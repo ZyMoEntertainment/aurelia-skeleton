@@ -16,14 +16,20 @@
     .component-block {
       margin-bottom: 40px;
     }
+  }
 
-    .value-block {
-      margin-bottom: 30px;
-    }
+  .value-block {
+    margin-bottom: 40px;
 
     .converter {
       margin-bottom: 20px;
-    }
 
+      .converter-title {
+        margin-bottom: 20px;
+        font-size: 18px;
+        text-decoration: underline;
+      }
+    }
   }
+
 }

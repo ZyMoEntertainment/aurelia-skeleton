@@ -1,4 +1,5 @@
 <template>
+    <require from="./home.css"></require>
     <div id="home" class="container">
        <h3 class="heading">
            Lets look at all the components included in this skeleton
@@ -22,12 +23,34 @@
                     Popup Dialog
                 </div>
                 <div class="component-description">
-                    Here we can open a popup dialog to confirm a selection or deletion.
+                    Here we can open a popup dialog to confirm a selection or deletion. These entries are in a form that uses aurelia's powerful binding , you should take a look to see how these are done. This makes sending information from the DOM to the view controller quite simple.
                 </div>
                 <button class="btn" click.delegate="openDialog()">Open Dialog</button>
                 <div class="dialog-response" if.bind="dialogResponse">
-                    ${dialogResponse}
+                    Dialog response: ${dialogResponse}
                 </div>
+                <div class="component-description">
+                    We can also change what we are sending there quite easily. This example also uses the form submit.delegate convention, so you can look at how that is used.
+                </div>
+                <form submit.delegate="openDialog()">
+                    <div class="form-group">
+                        <label for="heading">Dialog Heading:</label>
+                        <input id="heading" type="text" value.bind="dialogSettings.heading" />
+                    </div>
+                    <div class="form-group">
+                        <label for="subtitle">Dialog Subtitle:</label>
+                        <input id="subtitle" type="text" value.bind="dialogSettings.subtitle" />
+                    </div>
+                    <div class="form-group">
+                        <label for="body">Dialog Body:</label>
+                        <input id="body" type="text" value.bind="dialogSettings.body" />
+                    </div>
+                    <div class="form-group">
+                        <label for="buttonText">Dialog Confirmation Button Text:</label>
+                        <input id="buttonText" type="text" value.bind="dialogSettings.buttonText" />
+                    </div>
+                    <button class="btn" type="submit">Open Dialog</button>
+                </form>
             </div>
 
             <div class="notifications component-block">
@@ -35,30 +58,67 @@
                     Notifications
                 </div>
                 <div class="component-description">
-                    Here we use a library from SpoonX for toaster notifications
+                    Here we use a library from SpoonX for toaster notifications. These buttons are also generated using an aurelia repeat loop, so you can see how easily you can minimize your HTML.
                 </div>
-                <button class="btn" click.delegate="openNotification('error')">Open Error Notification</button>
-                <button class="btn" click.delegate="openNotification('success')">Open Success Notification</button>
-                <button class="btn" click.delegate="openNotification('info')">Open Info Notification</button>
+                <button repeat.for="button of buttons" class="btn" click.delegate="openNotification(button.type)">${button.message}</button>
             </div>
         </div>
 
         <div class="value-converters">
-            <h3 class="heading">
+            <div class="heading">
                 How about some value converters?
-            </h3>
-            <h4 class="component-description">
-                Value converters allow you to get the look you want for the information you are displaying
-            </h4>
+            </div>
+            <div class="component-description">
+                Value converters allow you to get the look you want for the information you are displaying. If you look in /src/resources/index.js you see how easy it is to add the value converter as a global resource for later use.
+            </div>
 
             <div class="value-converters value-block">
                 <div class="value-converters-items">
                     <div class="converter">
                         <div class="converter-title">
-                            Lets start with the currency formatter
+                            Currency Converter
+                        </div>
+                        <div class="converter-description">
+                            With the currency formatter, we can give any number we would like and by using the currency formatter we can have it display different ways normal on how currency would normally be displayed.
                         </div>
                         <div class="converter-text">
+                            We can convert the number "14.9148" and have a dollar sign : ${14.9148 | currencyFormat}<br>
+                            Or we can convert the same number "14.9148", and get it back without a dollar sign just by adding an additional parameter to the formatter ${14.9148 | currencyFormat:true} <br>
+                            If we give the number "14.9158", we can see the formatter will round up for us : ${14.9158 | currencyFormat}
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="value-converters value-block">
+                <div class="value-converters-items">
+                    <div class="converter">
+                        <div class="converter-title">
+                            Full Name Converter
+                        </div>
+                        <div class="converter-description">
+                            With the full name formatter, we can give an object that contains the properties first_name and last_name, or firstName and lastName, and the converter will concatanate the name for you without having to write it out twice each time.
+                        </div>
+                        <div class="converter-text">
+                            Lets give it the object {first_name: "John", last_name: "Smith"} : ${johnSmith | fullName}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="value-converters value-block">
+                <div class="value-converters-items">
+                    <div class="converter">
+                        <div class="converter-title">
+                            RGB to Hexcode Converter
+                        </div>
+                        <div class="converter-description">
+                            This is a bi-directional value converter. We are giving the value converter our value, and it will change the object for us within our view controller. This is a very powerful binding convention for Aurelia
+                        </div>
+                        <div class="converter-text">
+                            <label for="color">Select Color:</label>
+                            <input id="color" type="color" value.bind="rgb | rgbToHex" />
+                            <br/> r: ${rgb.r}, g:${rgb.g}, b:${rgb.b}
                         </div>
                     </div>
                 </div>
