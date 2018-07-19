@@ -20,7 +20,7 @@
                         <a class="nav-links"  data-target="#skeleton-navigation-navbar-collapse.in">Home</a>
                     </div>
                 </li>
-                <li class="nav-link" click.delegate="logout()">
+                <li class="nav-link" click.delegate="logout()" if.bind="user">
                     <div class="inline">
                         <a data-toggle="collapse" class="nav-links" data-target="#skeleton-navigation-navbar-collapse.in">Logout</a>
                     </div>

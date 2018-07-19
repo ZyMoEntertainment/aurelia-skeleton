@@ -60,7 +60,7 @@
                 <div class="component-description">
                     Here we use a library from SpoonX for toaster notifications. These buttons are also generated using an aurelia repeat loop, so you can see how easily you can minimize your HTML.
                 </div>
-                <button repeat.for="button of buttons" class="btn" click.delegate="openNotification(button.type)">${button.message}</button>
+                <button repeat.for="button of buttons" class="btn" click.delegate="openNotification(button)">${button.message}</button>
             </div>
         </div>
 
