@@ -1,5 +1,5 @@
 export default {
     debug: false,
     testing: false,
-    apiUrl: 'http://localhost:3000/api/'
+    apiEndpoint: 'https://api.example.zymodevelop.com/api/',
 };

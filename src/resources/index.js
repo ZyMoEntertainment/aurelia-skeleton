@@ -1,15 +1,19 @@
+const ELEMENTS = './elements';
+const VALUE_CONVERTERS = './value-converters';
+
 export function configure(config) {
-  config.globalResources([
-    // Elements
-    './elements/input-slider/input-slider',
-    './elements/confirm-dialog/confirm-dialog',
+    config.globalResources([
+        // Elements
+        `${ELEMENTS}/input-slider/input-slider`,
+        `${ELEMENTS}/error-list/error-list.html`,
+        `${ELEMENTS}/confirm-dialog/confirm-dialog.html`,
 
-    // Attributes
-
-    // Value Converters
-    './value-converters/full-name',
-    './value-converters/currency-formatter',
-    './value-converters/rgb-to-hex',
-    './value-converters/date-formatter'
-  ]);
+        // Value Converters
+        `${VALUE_CONVERTERS}/full-name`,
+        `${VALUE_CONVERTERS}/currency-formatter`,
+        `${VALUE_CONVERTERS}/keys`,
+        `${VALUE_CONVERTERS}/proper-case`,
+        `${VALUE_CONVERTERS}/date-formatter`,
+        `${VALUE_CONVERTERS}/rgb-to-hex`,
+    ]);
 }

@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {ApiService} from "./api-service";
+import {ApiService} from './api-service';
 
 const TOKEN_KEY = 'jwt_token';
 
@@ -7,32 +7,38 @@ const TOKEN_KEY = 'jwt_token';
 export class SessionService {
     isAuthenticated = false;
     currentUser = null;
-    userModel = 'Admin'; //This would be the name of your USER MODEL that logs in/out
 
     constructor(apiService) {
         this.apiService = apiService;
     }
 
-    register(data) {
-        return this._apiRequest('signup', data);
+    async register(data) {
+        return await this._apiRequest('HAUsers/logout', data);
     }
 
-    login(data) {
-        return this._apiRequest(`${this.userModel}/login`, data);
+    async login(data) {
+        return await this._apiRequest('HAUsers/login', data);
     }
 
     async logout() {
-        await this.apiService.post(`${this.userModel}/logout`)
+        this.destroyToken();
+        this.currentUser = null;
+        this.isAuthenticated = false;
     }
 
     async getUser() {
-        return this.currentUser;
+        if (!this.getToken()) {
+            this.currentUser = null;
+            this.isAuthenticated = false;
+            return;
+        }
+        return this.currentUser
     }
 
-    async _apiRequest() {
-        let result = await this.apiService.post(path, {user: data});
-        this.saveToken(result.token);
-        this.currentUser = result.user;
+    async _apiRequest(path, user) {
+        let response = await this.apiService.doPost(path, user);
+        this.saveToken(response.token);
+        this.currentUser = response;
         this.isAuthenticated = true;
     }
 
@@ -45,18 +51,17 @@ export class SessionService {
     }
 
     destroyToken() {
-        window.localStorage.removeItem(TOKEN_KEY)
+        window.localStorage.removeItem(TOKEN_KEY);
     }
 
     isTokenValid() {
         const token = this.getToken();
-        return (token && token === '');
+        return token && token !== '' && token !== undefined && token !== 'undefined';
     }
 
     getAuthorizationHeader() {
         if (this.isTokenValid()) {
-            return `Bearer ${this.getToken()}`
+            return `Bearer ${this.getToken()}`;
         }
-    }
-
+    };
 }

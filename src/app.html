@@ -1,7 +1,9 @@
 <template>
-    <require from="./styles/styles.css"></require>
+    <require from="font-awesome.css"></require>
     <require from="bootstrap/css/bootstrap.css"></require>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <require from="./styles/styles.css"></require>
+
+    <nav class="navbar navbar-fixed-top">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#skeleton-navigation-navbar-collapse">
                 <span class="sr-only">Toggle Navigation</span>
@@ -12,32 +14,23 @@
         </div>
 
         <div class="collapse navbar-collapse" id="skeleton-navigation-navbar-collapse">
-            <div class="row">
-                <div class="col-md-4">
-                    <img class="aurelia-logo" src="/assets/aurelia_logo.png">
-                </div>
-
-                <div class="col-md-5 col-md-offset-1 col-sm-6">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-                            <a data-toggle="collapse" data-target="#skeleton-navigation-navbar-collapse.in" href.bind="row.href" style="padding-top: 16px;">${row.title}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <ul class="nav navbar-nav lighter navbar-right">
+                <li class="nav-link" click.delegate="route('home')">
+                    <div class="inline">
+                        <a class="nav-links"  data-target="#skeleton-navigation-navbar-collapse.in">Home</a>
+                    </div>
+                </li>
+                <li class="nav-link" click.delegate="logout()">
+                    <div class="inline">
+                        <a data-toggle="collapse" class="nav-links" data-target="#skeleton-navigation-navbar-collapse.in">Logout</a>
+                    </div>
+                </li>
+            </ul>
         </div>
     </nav>
 
     <div class="page-host">
         <!-- Injected Content -->
         <router-view></router-view>
-        <!-- Footer -->
-        <div id="footer">
-            <div class="container">
-                <div class="row">
-                    Footer Content
-                </div>
-            </div>
-        </div>
     </div>
 </template>

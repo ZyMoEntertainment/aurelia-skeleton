@@ -1,16 +1,19 @@
 import numeral from 'numeral';
 
 export class CurrencyFormatValueConverter {
-    toView(value, showDollarSign) {
+    toView(value) {
         if (!value) {
             return;
         }
 
-        //Here we check to see if anyhting was
-        if (!showDollarSign) {
-            return numeral(value).format('($0,0.00)');
-        } else {
-            return numeral(value).format('(0,0.00)');
+        return numeral(value).format('($0,0.00)');
+    }
+
+    noDollarSign(value) {
+        if (!value) {
+            return;
         }
+
+        return numeral(value).format('(0,0.00)');
     }
 }

@@ -6,37 +6,35 @@ import processCSS from './process-css';
 import copyFiles from './copy-files';
 import watch from './watch';
 import project from '../aurelia.json';
-import copyAssets from './copy-assets'
 
 let build = gulp.series(
-    readProjectConfiguration,
-    gulp.parallel(
-        transpile,
-        processMarkup,
-        processCSS,
-        copyFiles,
-        copyAssets
-    ),
-    writeBundles
+  readProjectConfiguration,
+  gulp.parallel(
+    transpile,
+    processMarkup,
+    processCSS,
+    copyFiles
+  ),
+  writeBundles
 );
 
 let main;
 
 if (CLIOptions.taskName() === 'build' && CLIOptions.hasFlag('watch')) {
-    main = gulp.series(
-        build,
-        (done) => { watch(); done(); }
-    );
+  main = gulp.series(
+    build,
+    (done) => { watch(); done(); }
+  );
 } else {
-    main = build;
+  main = build;
 }
 
 function readProjectConfiguration() {
-    return buildCLI.src(project);
+  return buildCLI.src(project);
 }
 
 function writeBundles() {
-    return buildCLI.dest();
+  return buildCLI.dest();
 }
 
 export { main as default };

@@ -10,8 +10,8 @@ export class ApiInterceptor {
     }
 
     request(request) {
-        if (!this.sessionService.isValidToken()) {
-            return request
+        if (!this.sessionService.isTokenValid()) {
+            return request;
         }
 
         if (!request.headers.get(AUTHORIZATION_HEADER)) {
@@ -19,5 +19,5 @@ export class ApiInterceptor {
         }
 
         return request;
-    }
+    };
 }

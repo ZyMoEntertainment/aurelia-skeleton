@@ -1,7 +1,7 @@
 export class ApiError extends Error {
-    constructor(data) {
+    constructor(errors) {
         super();
 
-        this.data = data;
+        this.errors = errors.errors || errors;
     }
 }

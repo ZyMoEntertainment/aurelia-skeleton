@@ -1,9 +1,9 @@
 import moment from 'moment';
-export class PrettyDateValueConverter {
-    toView(value) {
+export class DateFormatValueConverter {
+    toView(value, format) {
         if (!value) {
             return;
         }
-        return moment(value).format("ddd, MMM Do YYYY h:mma");
+        return moment(value).format(format);
     }
 }
