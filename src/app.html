@@ -3,24 +3,19 @@
     <require from="bootstrap/css/bootstrap.css"></require>
     <require from="./styles/styles.css"></require>
 
-    <nav class="navbar navbar-fixed-top">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#skeleton-navigation-navbar-collapse">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="collapse navbar-collapse" id="skeleton-navigation-navbar-collapse">
-            <ul class="nav navbar-nav lighter navbar-right">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-link" click.delegate="route('home')">
                     <div class="inline">
                         <a class="nav-links"  data-target="#skeleton-navigation-navbar-collapse.in">Home</a>
                     </div>
                 </li>
-                <li class="nav-link" click.delegate="logout()">
+                <li class="nav-link" click.delegate="logout()" if.bind="user">
                     <div class="inline">
                         <a data-toggle="collapse" class="nav-links" data-target="#skeleton-navigation-navbar-collapse.in">Logout</a>
                     </div>
