@@ -7,6 +7,10 @@ export function configure(config) {
         `${ELEMENTS}/input-slider/input-slider`,
         `${ELEMENTS}/error-list/error-list.html`,
         `${ELEMENTS}/confirm-dialog/confirm-dialog.html`,
+        `${ELEMENTS}/postal-input/postal-input.html`,
+        `${ELEMENTS}/state-input/state-input`,
+        `${ELEMENTS}/phone-input/phone-input.html`,
+        `${ELEMENTS}/sex-input/sex-input`,
 
         // Value Converters
         `${VALUE_CONVERTERS}/full-name`,

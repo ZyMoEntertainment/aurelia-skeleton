@@ -1,0 +1,7 @@
+<template bindable="value, disabled, required">
+    <label>
+        Postal
+    </label>
+    <input type="text" pattern="\d*" maxlength="5" minlength="5" title="Must only contain numbers" class="form-control"
+           value.bind="value" disabled.bind="disabled" required.bind="required">
+</template>

@@ -1,7 +1,8 @@
-import 'bootstrap';
 import environment from 'environment';
 import {HttpClient} from 'aurelia-fetch-client';
 import {ApiInterceptor} from 'services/api-interceptor';
+import 'bootstrap';
+import 'moment';
 
 export function configure(aurelia) {
     aurelia.use

@@ -1,0 +1,11 @@
+<template>
+    <require from="./sex-input.css"></require>
+
+    <div id="sex-input">
+        <label for="role">Sex:</label>
+        <select class="text-capitalize" value.bind="value" id="role" disabled.bind="disabled" required>
+            <option value="">Choose...</option>
+            <option class="text-capitalize" repeat.for="sex of sexOptions" value.bind="sex">${sex}</option>
+        </select>
+    </div>
+</template>

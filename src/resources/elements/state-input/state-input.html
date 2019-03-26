@@ -1,0 +1,7 @@
+<template>
+    <label for="state">State:</label>
+    <select class="text-capitalize" value.bind="value" id="state" disabled.bind="disabled" required.bind="required">
+        <option value="">Choose...</option>
+        <option class="text-capitalize" repeat.for="state of stateOptions" value.bind="state">${state}</option>
+    </select>
+</template>
