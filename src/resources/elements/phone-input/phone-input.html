@@ -1,0 +1,7 @@
+<template bindable="value, label, disabled, required">
+    <label>
+        ${label}
+    </label>
+    <input type="text" pattern="\d*" maxlength="11" minlength="10" title="Must only contain numbers" class="form-control"
+           value.bind="value" disabled.bind="disabled" required.bind="required">
+</template>

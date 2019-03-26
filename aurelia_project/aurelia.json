@@ -1,15 +1,20 @@
 {
-  "name": "chicksgold-ui",
+  "name": "aurelia-skeleton",
   "type": "project:application",
   "bundler": {
     "id": "cli",
     "displayName": "Aurelia-CLI"
+  },
+  "httpProtocol": {
+    "id": "http1",
+    "displayName": "HTTP/1.1"
   },
   "build": {
     "targets": [
       {
         "id": "web",
         "displayName": "Web",
+        "port": 9000,
         "index": "index.html",
         "baseDir": ".",
         "output": "scripts"
@@ -17,20 +22,20 @@
     ],
     "options": {
       "minify": "stage & prod",
-      "sourcemaps": "dev & stage"
+      "sourcemaps": "dev & stage",
+      "rev": false,
+      "cache": "dev & stage"
     },
     "bundles": [
       {
         "name": "app-bundle.js",
         "source": [
-          "[**/*.js]",
-          "**/*.{css,html}"
+          "**/*.{js,json,css,html}"
         ]
       },
       {
         "name": "vendor-bundle.js",
         "prepend": [
-          "node_modules/babel-polyfill/dist/polyfill.min.js",
           "node_modules/bluebird/js/browser/bluebird.core.js",
           {
             "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird-no-long-stacktraces.js",
@@ -40,110 +45,23 @@
             "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
             "env": "dev"
           },
-          "node_modules/whatwg-fetch/fetch.js",
+          "node_modules/@babel/polyfill/browser.js",
           "node_modules/requirejs/require.js"
         ],
         "dependencies": [
-          "aurelia-api",
-          {
-            "name": "aurelia-auth",
-            "path": "../node_modules/aurelia-auth/dist/amd",
-            "main": "aurelia-auth"
-          },
-          "aurelia-binding",
           "aurelia-bootstrapper",
-          "aurelia-dependency-injection",
-          {
-            "name": "aurelia-dialog",
-            "path": "../node_modules/aurelia-dialog/dist/amd",
-            "main": "aurelia-dialog"
-          },
-          "aurelia-event-aggregator",
-          "aurelia-fetch-client",
-          "aurelia-framework",
-          "aurelia-history",
-          "aurelia-history-browser",
-          {
-            "name": "aurelia-i18n",
-            "path": "../node_modules/aurelia-i18n/dist/amd",
-            "main": "aurelia-i18n"
-          },
-          "aurelia-loader",
           "aurelia-loader-default",
-          "aurelia-logging",
-          "aurelia-logging-console",
-          "aurelia-metadata",
-          "aurelia-notification",
-          "aurelia-pal",
           "aurelia-pal-browser",
-          "aurelia-path",
-          "aurelia-polyfills",
-          "aurelia-route-recognizer",
-          "aurelia-router",
-          "aurelia-task-queue",
-          "aurelia-templating",
-          "aurelia-templating-binding",
-          {
-            "name": "aurelia-templating-resources",
-            "path": "../node_modules/aurelia-templating-resources/dist/amd",
-            "main": "aurelia-templating-resources"
-          },
-          {
-            "name": "aurelia-templating-router",
-            "path": "../node_modules/aurelia-templating-router/dist/amd",
-            "main": "aurelia-templating-router"
-          },
           {
             "name": "aurelia-testing",
-            "path": "../node_modules/aurelia-testing/dist/amd",
-            "main": "aurelia-testing",
             "env": "dev"
           },
-          {
-            "name": "aurelia-validation",
-            "path": "../node_modules/aurelia-validation/dist/amd",
-            "main": "aurelia-validation"
-          },
-          {
-            "name": "bootstrap",
-            "path": "../node_modules/bootstrap/dist",
-            "main": "js/bootstrap.bundle.min",
-            "deps": [
-              "jquery"
-            ],
-            "exports": "$",
-            "resources": [
-              "css/bootstrap.css"
-            ]
-          },
-          "extend",
-          {
-            "name": "font-awesome",
-            "path": "../node_modules/font-awesome/css",
-            "main": "font-awesome.css"
-          },
-          {
-            "name": "humane-js",
-            "path": "../node_modules/humane-js",
-            "main": "humane",
-            "resources": [
-              "themes/libnotify.css"
-            ]
-          },
-          {
-            "name": "i18next",
-            "path": "../node_modules/i18next/dist/umd",
-            "main": "i18next"
-          },
-          "jquery",
-          "moment",
-          "numeral",
           "text"
         ]
       }
     ],
     "copyFiles": {
-      "node_modules/font-awesome/fonts/*": "fonts"
+      "node_modules/font-awesome/fonts/*": "font-awesome/fonts"
     },
     "loader": {
       "type": "require",
@@ -164,6 +82,7 @@
   "platform": {
     "id": "web",
     "displayName": "Web",
+    "port": 9000,
     "index": "index.html",
     "baseDir": ".",
     "output": "scripts"
@@ -174,7 +93,12 @@
     "fileExtension": ".js",
     "options": {
       "plugins": [
-        "transform-es2015-modules-amd"
+        [
+          "@babel/plugin-transform-modules-amd",
+          {
+            "loose": true
+          }
+        ]
       ]
     },
     "source": "src/**/*.js"
@@ -191,10 +115,17 @@
     "fileExtension": ".scss",
     "source": "src/**/*.scss"
   },
+  "jsonProcessor": {
+    "id": "none",
+    "displayName": "None",
+    "fileExtension": ".json",
+    "source": "src/**/*.json"
+  },
   "editor": {
     "id": "none",
     "displayName": "None"
   },
+  "features": {},
   "unitTestRunner": {
     "id": "none",
     "displayName": "None"
@@ -207,8 +138,8 @@
     "root": "src",
     "resources": "resources",
     "elements": "resources/elements",
-    "attributes": "resources/attributes",
-    "valueConverters": "resources/value-converters",
-    "bindingBehaviors": "resources/binding-behaviors"
-  }
+    "pipelines": "resources/pipelines",
+    "valueConverters": "resources/value-converters"
+  },
+  "packageManager": "npm"
 }
